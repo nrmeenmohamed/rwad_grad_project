@@ -1,4 +1,3 @@
-import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:teknosoft/cubit/states.dart';
@@ -39,9 +38,9 @@ class AppCubit extends Cubit<AppStates> {
   ];
 
   List<Widget> screen = [
-    CategoryScreen(),
-    TasksScreen(),
-    DoneTaskScreen(),
+    const CategoryScreen(),
+    const TasksScreen(),
+    const DoneTaskScreen(),
   ];
 
   int currentIndex = 0;
@@ -77,6 +76,9 @@ class AppCubit extends Cubit<AppStates> {
   void createDatabase() async {
     await database!.db;
     emit(AppCreateDatabaseState());
+
+    getCategory();
+    getTask();
   }
 
   int? categoryId;

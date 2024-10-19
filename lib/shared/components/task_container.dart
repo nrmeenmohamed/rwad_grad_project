@@ -78,31 +78,29 @@ Widget taskContainer(
                   ),
                 ],
               ),
-              trailing: Theme(
-                data: ThemeData(
-                  unselectedWidgetColor: choosePriorityColor(
+              trailing: Checkbox(
+                side: BorderSide(
+                  color: choosePriorityColor(
                       priorityStates: taskModel['priority']),
                 ),
-                child: Checkbox(
-                  onChanged: (bool? value) {
-                    final Map modifiedTaskModel = {...taskModel}; // Make a copy
-                    final int doneStatus = value != null && value ? 1 : 0;
-                    modifiedTaskModel['done'] = doneStatus; // Modify the copy
-                    cubit.updateTask(
-                      taskModel: TaskModel(
-                        title: taskModel['title'],
-                        description: taskModel['description'],
-                        time: taskModel['time'],
-                        categoryId: taskModel['categoryId'],
-                        priority: taskModel['priority'],
-                        done: doneStatus,
-                      ),
-                      id: taskModel['id'],
-                    );
-                  },
-                  value: valueBox,
-                  activeColor: secondaryColor,
-                ),
+                onChanged: (bool? value) {
+                  final Map modifiedTaskModel = {...taskModel}; // Make a copy
+                  final int doneStatus = value != null && value ? 1 : 0;
+                  modifiedTaskModel['done'] = doneStatus; // Modify the copy
+                  cubit.updateTask(
+                    taskModel: TaskModel(
+                      title: taskModel['title'],
+                      description: taskModel['description'],
+                      time: taskModel['time'],
+                      categoryId: taskModel['categoryId'],
+                      priority: taskModel['priority'],
+                      done: doneStatus,
+                    ),
+                    id: taskModel['id'],
+                  );
+                },
+                value: valueBox,
+                activeColor: secondaryColor,
               ),
             ),
           ),

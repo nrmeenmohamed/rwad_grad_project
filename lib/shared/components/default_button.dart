@@ -15,5 +15,6 @@ Widget defaultButton({
       ),
       child: Text(
         text,
+        style: const TextStyle(color: Colors.white),
       ),
     );

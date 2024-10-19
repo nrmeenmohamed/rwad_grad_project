@@ -59,6 +59,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                       // Display the fixed container as the last item
                       return GestureDetector(
                         onTap: () {
+                          categoryNameController.clear();
                           showModalBottomSheet(
                             backgroundColor: lightGrey,
                             context: context,

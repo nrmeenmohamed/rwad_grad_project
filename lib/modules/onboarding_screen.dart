@@ -63,6 +63,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         backgroundColor: secondaryColor,
         child: const Icon(
           Icons.arrow_forward_ios_outlined,
+          color: Colors.white,
         ),
         onPressed: () {
           setState(() {

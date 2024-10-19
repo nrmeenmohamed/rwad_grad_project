@@ -6,22 +6,25 @@ Widget imageContainer(
   required Function onTap,
   required String image,
 }) =>
-    GestureDetector(
-      onTap: () {
-        onTap();
-      },
-      child: Container(
-        clipBehavior: Clip.antiAliasWithSaveLayer,
-        decoration: BoxDecoration(
-          border: Border.all(
-            color: Colors.white,
+    Padding(
+      padding: const EdgeInsets.only(right: 8),
+      child: GestureDetector(
+        onTap: () {
+          onTap();
+        },
+        child: Container(
+          clipBehavior: Clip.antiAliasWithSaveLayer,
+          decoration: BoxDecoration(
+            border: Border.all(
+              color: Colors.white,
+            ),
           ),
-        ),
-        child: Image(
-          image: CachedNetworkImageProvider(image),
-          width: MediaQuery.of(context).size.width * 0.3,
-          height: MediaQuery.of(context).size.height * 0.25,
-          fit: BoxFit.cover,
+          child: Image(
+            image: CachedNetworkImageProvider(image),
+            width: MediaQuery.of(context).size.width * 0.3,
+            height: MediaQuery.of(context).size.height * 0.25,
+            fit: BoxFit.cover,
+          ),
         ),
       ),
     );

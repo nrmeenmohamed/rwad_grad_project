@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +8,6 @@ import 'package:teknosoft/cubit/states.dart';
 import 'package:teknosoft/shared/components/fallback_container.dart';
 import 'package:teknosoft/shared/components/show_message.dart';
 import 'package:teknosoft/shared/styles/colors.dart';
-import 'package:date_picker_timeline/date_picker_timeline.dart';
 
 import '../cubit/cubit.dart';
 import '../models/task_model.dart';
@@ -19,6 +16,7 @@ import '../shared/components/default_button.dart';
 import '../shared/components/default_dropdown_menu.dart';
 import '../shared/components/default_text_field.dart';
 import '../shared/components/dialog.dart';
+import '../shared/components/show_date_calnder.dart';
 import '../shared/components/show_menu_button.dart';
 import '../shared/components/task_container.dart';
 
@@ -200,45 +198,8 @@ class _TasksScreenState extends State<TasksScreen> {
                 ],
               ),
               // SizedBox(height: 10,),
-
               // date
-              Stack(
-                children: [
-                  Positioned.fill(
-                    child: ClipRect(
-                      child: BackdropFilter(
-                        filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
-                        child: Container(
-                          color: Colors.transparent,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10.r),
-                      color: backgroundColor,
-                    ),
-                    padding: const EdgeInsetsDirectional.all(8),
-                    child: DatePicker(
-                      DateTime.now(),
-                      initialSelectedDate: DateTime.now(),
-                      selectionColor: secondaryColor,
-                      selectedTextColor: textColor,
-                      dateTextStyle: TextStyle(
-                        color: textColor,
-                      ),
-                      dayTextStyle: TextStyle(
-                        color: textColor,
-                      ),
-                      monthTextStyle: TextStyle(
-                        color: textColor,
-                      ),
-                      onDateChange: (date) {},
-                    ),
-                  ),
-                ],
-              ),
+              showDateCalender(),
               const SizedBox(
                 height: 10,
               ),

@@ -1,15 +1,16 @@
 import 'dart:ui';
 
-import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:teknosoft/cubit/cubit.dart';
 import 'package:teknosoft/cubit/states.dart';
 import 'package:teknosoft/models/task_model.dart';
-import 'package:teknosoft/modules/theme_screen.dart';
+import 'package:teknosoft/modules/setting_screen.dart';
 import 'package:teknosoft/shared/components/default_dropdown_menu.dart';
 import 'package:teknosoft/shared/styles/colors.dart';
+
 import '../shared/components/constants.dart';
 import '../shared/components/default_button.dart';
 import '../shared/components/default_text_field.dart';
@@ -66,6 +67,9 @@ class _HomeLayoutState extends State<HomeLayout> {
               backgroundColor: backgroundColor,
               title: const Text(
                 'TaskHup',
+                style: TextStyle(
+                  color: Colors.white,
+                ),
               ),
               actions: [
                 IconButton(
@@ -73,11 +77,11 @@ class _HomeLayoutState extends State<HomeLayout> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => ThemeScreen(),
+                        builder: (context) => SettingScreen(),
                       ),
                     );
                   },
-                  icon: const Icon(Icons.imagesearch_roller_outlined),
+                  icon: const Icon(Icons.settings, color: Colors.white),
                 ),
               ],
             ),
@@ -117,6 +121,10 @@ class _HomeLayoutState extends State<HomeLayout> {
             floatingActionButton: FloatingActionButton(
               backgroundColor: secondaryColor.withOpacity(0.7),
               onPressed: () {
+                titleController.clear();
+                descriptionController.clear();
+                timeController.clear();
+
                 showModalBottomSheet(
                   isDismissible: false,
                   isScrollControlled: true,
@@ -307,6 +315,7 @@ class _HomeLayoutState extends State<HomeLayout> {
               },
               child: const Icon(
                 Icons.add,
+                color: Colors.white,
               ),
             ),
             body: cubit.screen[cubit.currentIndex],
