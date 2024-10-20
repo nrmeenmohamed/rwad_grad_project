@@ -79,7 +79,7 @@ class _SettingScreenState extends State<SettingScreen> {
       }
     } else {
       LocalNotificationServices.cancelAllNotification();
-      // WorkManageServices.cancelTask();
+     
     }
 
     CacheHelper.saveDate(
