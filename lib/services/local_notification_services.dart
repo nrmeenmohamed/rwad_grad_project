@@ -54,7 +54,7 @@ class LocalNotificationServices {
   static void showScheduledDailyNotification() async {
     NotificationDetails notificationDetails = const NotificationDetails(
       android: AndroidNotificationDetails(
-        'channel id',
+        'id1',
         'Scheduled daily notification',
         importance: Importance.max,
         priority: Priority.high,

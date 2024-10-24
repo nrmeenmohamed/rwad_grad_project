@@ -31,6 +31,12 @@ class _CategoryScreenState extends State<CategoryScreen> {
   bool isBottomSheetOpen = false;
 
   @override
+  void dispose() {
+    categoryNameController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return BlocConsumer<AppCubit, AppStates>(
       listener: (BuildContext context, AppStates state) {
