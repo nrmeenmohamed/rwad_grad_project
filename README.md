@@ -10,7 +10,7 @@ TaskHup is a Flutter-based To-Do app that helps users manage their tasks effecti
 ## Features
 
 ### Task Management
-- ✏️ Add, ✏️ edit, and ❌ delete tasks easily.
+- + Add, ✏️ edit, and ❌ delete tasks easily.
 - CRUD operations for seamless task management.
 
 
